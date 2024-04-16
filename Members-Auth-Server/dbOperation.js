@@ -104,7 +104,7 @@ class dbOperation{
 
     }
 
-    async approve(email) {
+    async approve(email,authority) {
         try {
             const member = await this.model.findOne({ Email: email });
 
@@ -112,6 +112,7 @@ class dbOperation{
                 throw new Error('Member not found');
             }
             member.ApprovalStatus = true;
+            member.Authority = authority;
 
             const updatedMember = await member.save();
     

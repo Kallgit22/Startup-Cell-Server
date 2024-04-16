@@ -54,7 +54,6 @@ database.createCollection('MembersData', schema());
 // Server Blocks for Handle Requests.
 
 //This Server Block Provide Approved Members
-//This Server Block Provide Approved Members
 server.post('/getMembers', async (req, res) => {
     try {
         const headdata = await database.getApprovedData("Head");
@@ -109,7 +108,7 @@ server.post('/RegisterMember', upload.single('profileImg'), async (req, res) => 
 server.post('/memberApproval', async (req, res) => {
     try {
         if (req.body.AuthenticationToken === Token) {
-            const status = await database.approve(req.body.email);
+            const status = await database.approve(req.body.email,req.body.authority);
             if (status) {
                 return res.status(200).json({ status: "Success", message: "Member Approved" });
             } else {
