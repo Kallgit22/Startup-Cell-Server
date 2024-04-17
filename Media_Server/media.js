@@ -7,7 +7,6 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const { ifError } = require('assert');
 
 dotenv.config();
 
