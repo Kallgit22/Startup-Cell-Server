@@ -19,7 +19,7 @@ const url = process.env.DB_URL || "";
 const handler = new DBHandler();
 handler.connect(url);
 
-server.use('/api', Router);
+server.use('/profile', Router);
 
 server.listen(port, () => {
     console.log(`Server running on PORT: ${port}`);
